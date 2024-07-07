@@ -42,6 +42,9 @@ class GameTest {
 					assertTrue(number.startsWith("0")); //The result of the test is a true or false.
 				}
 		 }
+		 
+		 //Test 2: Test that the the size of the array is 6.
+		 assertEquals(6,winningNumbers.size());
 	}
 
 	@Test
