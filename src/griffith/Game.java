@@ -28,7 +28,22 @@ public class Game {
 
 	public HashSet <String> generateNumbers() {
 		
-		return null;
+		Random rand = new Random();// Create an instance of Random.
+		Set<String> winningNumbers = new HashSet<String>();//Create a set to store the winning numbers.
+		for(int i= 1; i<7; i++) { // Generates 6 Numbers
+			int max=99;// Max number generated is 99.
+			int min=1;//Minimum number generated is 1.
+			while(winningNumbers.size()<6) { // While loop ensures that 6 numbers are generated.
+				int randNum=rand.nextInt(max-min)+1+min;// Generates numbers between 1-99 inclusive.
+				if(randNum<10) { //If the random number generated is less than 10,
+					winningNumbers.add(String.valueOf("0"+randNum));// add 0 before the number for consistency.
+				}
+				else { //Else if above 10,
+					winningNumbers.add(String.valueOf(randNum));// just add the number to set as is.
+				}
+			}
+		}
+		return (HashSet<String>) winningNumbers;
 		
 	}
 
