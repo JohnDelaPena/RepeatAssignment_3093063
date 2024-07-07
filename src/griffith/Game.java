@@ -22,12 +22,12 @@ public class Game {
 			count++;//Increment count by 1 after each input from the user.
 		}
 		System.out.println(inputSet);
-		
+
 	}
 
 
 	public HashSet <String> generateNumbers() {
-		
+
 		Random rand = new Random();// Create an instance of Random.
 		Set<String> winningNumbers = new HashSet<String>();//Create a set to store the winning numbers.
 		for(int i= 1; i<7; i++) { // Generates 6 Numbers
@@ -43,8 +43,8 @@ public class Game {
 				}
 			}
 		}
-		return (HashSet<String>) winningNumbers;
-		
+		return (HashSet<String>) winningNumbers; 
+
 	}
 
 	public int checkWinner() {

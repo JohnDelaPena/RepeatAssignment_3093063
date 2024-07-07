@@ -32,20 +32,27 @@ class GameTest {
 	@Test
 	void testGenerateNumbers() {
 		Game game = new Game();//Create an instance of game.
-		
+
 		//Test 1: Test that the numbers below 10 have a "0" beside it for consistency.
-		 Set<String> winningNumbers = game.generateNumbers(); // Let winning numbers to be tested equal to the winning numbers in game class.
-		 
-		 for(String number : winningNumbers) {//Create a loop which traverses the set.
-			 int num = Integer.parseInt(number);//The integer num is the number used to see if the content of the set is below 10.
-				if(num<10) { // Test that the numbers below 10 have a "0" before it for consistency.
-					assertTrue(number.startsWith("0")); //The result of the test is a true or false.
-				}
-		 }
-		 
-		 //Test 2: Test that the the size of the array is 6.
-		 assertEquals(6,winningNumbers.size());
+		Set<String> winningNumbers = game.generateNumbers(); // Let winning numbers to be tested equal to the winning numbers in game class.
+
+		for(String number : winningNumbers) {//Create a loop which traverses the set.
+			int num = Integer.parseInt(number);//The integer num is the number used to see if the content of the set is below 10.
+			if(num<10) { // Test that the numbers below 10 have a "0" before it for consistency.
+				assertTrue(number.startsWith("0"),"The numbers below 10 should start with 0 for consistency"); //The result of the test is a true or false.
+			}
+		}
+
+		//Test 2: Test that the the size of the set is 6.
+		assertEquals(6,winningNumbers.size(),"The expected size of the set is 6." );
+
+		//Test 3: Test that the contents  of the set is within the range of 1-99
+		for(String number : winningNumbers) { //Create a loop to traverse the set.
+			int num = Integer.parseInt(number); //The integer num is the number used to see if the content of the set is below 10.
+			assertTrue(num>=1 && num<=100, "The Number " +num +" is not within the range of 1-99."); //This test returns a true or false.
+		}
 	}
+
 
 	@Test
 	void testCheckWinner() {
