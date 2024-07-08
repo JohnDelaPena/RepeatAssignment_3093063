@@ -66,19 +66,13 @@ class GameTest {
 	@Test
 	void testVerifyGuesses() {
 		Game game = new Game();
-		Set<String> guesses = new HashSet<String>();
-		guesses.add("0"); //Test for number below 1
-		guesses.add("2"); //Test for number below 10
-		guesses.add("100");//Test for Number above 99.
-		guesses.add("12");//Test for regular number.
-		guesses.add("01"); //Test for correct output for number below 10.
-		guesses.add("x");//Test for incorrect input.
+		Set<String> guesses = game.guesses(); //Create an instance of guess from game class.
 		
 		//Test 1: Test that the contents  of the guesses set is within the range of 1-99
 		for(String number : guesses) { //Create a loop to traverse the set.
 			int num = Integer.parseInt(number); //The integer num is the number used to see if the content of the set is below 10.
 			assertTrue(num>=1 && num<=100, "The Guessed number " +num +" is not within the range of 1-99."); //This test returns a true or false.
 		}
-			
-		}
+
+	}
 }

@@ -9,7 +9,7 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 		HashSet<String> winningNumbers = game.generateNumbers();
-//        HashSet<String> userGuesses = game.guesses();
+		HashSet<String> userGuesses = game.guesses();
         
         System.out.println("These are the winning numbers: " +winningNumbers);
 	}
@@ -52,24 +52,27 @@ public class Game {
 
 	}
 
-/* Not yet implemented.
+
 	public HashSet <String> guesses(){
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter 6 Numbers");//Prompt user to input 6 numbers
+		System.out.println("Enter 6 Numbers Between 1-99 ");//Prompt user to input 6 numbers
 		Set<String> inputSet= new HashSet<String>();
 		int count=0; //
 		while(count<6) {
 			int input=scan.nextInt();
-			if(input<10) { //If the  number input is less than 10,
-				inputSet.add(String.valueOf("0"+input));// add 0 before the number for consistency.
+			
+			if(input<1 || input>99 ){
+				System.out.println("Enter 6 Numbers Between 1-99");
+				scan.nextInt();
 			}
-			else { //Else if above 10,
-				inputSet.add(String.valueOf(input));// just add the number to set as is.
+			
+			else {
+				count++;
+				System.out.println(input +" was added as entry " +count +".");
+				
 			}
-			count++;//Increment count by 1 after each input from the user.
 		}
 		return (HashSet<String>) inputSet;
 	}
-*/
 
 }
