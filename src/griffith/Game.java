@@ -57,22 +57,23 @@ public class Game {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter 6 Numbers Between 1-99 ");//Prompt user to input 6 numbers
 		Set<String> inputSet= new HashSet<String>();
-		int count=0; //
-		while(count<6) {
-			int input=scan.nextInt();
+		int count=0; // Create a counter
+		while(count<6) { // While the count is less than 6:
+			int input=scan.nextInt(); //Take user input.
 			
-			if(input<1 || input>99 ){
-				System.out.println("Enter 6 Numbers Between 1-99");
-				scan.nextInt();
+			if(input<1 || input>99 ){ //If Input is less than 1 and greater than 99.
+				System.out.println("Error: Enter 6 Numbers Between 1-99"); //Prompt the user to input numbers withen the range of 1-99.
 			}
 			
-			else {
-				count++;
-				System.out.println(input +" was added as entry " +count +".");
+			else {// If input is valid.
+				String formattedInput= String.valueOf(input);
+				count++; // Counter increments by 1.
+				inputSet.add(formattedInput);// Add inputs from user to set.
+				System.out.println(input +" was added as entry " +count +"."); //Display input success message.
 				
 			}
 		}
-		return (HashSet<String>) inputSet;
+		return (HashSet<String>) inputSet; //return hashset.
 	}
 
 }
