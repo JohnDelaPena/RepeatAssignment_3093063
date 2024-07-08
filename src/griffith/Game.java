@@ -66,7 +66,7 @@ public class Game {
 			}
 			
 			else {// If input is valid.
-				String formattedInput= String.valueOf(input);
+				String formattedInput= (input<10) ? "0" + input :String.valueOf(input); // Ternary operator : if input is less than 10, add 0 before input.
 				count++; // Counter increments by 1.
 				inputSet.add(formattedInput);// Add inputs from user to set.
 				System.out.println(input +" was added as entry " +count +"."); //Display input success message.
