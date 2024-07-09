@@ -70,13 +70,17 @@ public class Game {
 
 				else {// If input is valid.
 					String formattedInput= (input<10) ? "0" + input :String.valueOf(input); // Ternary operator : if input is less than 10, add 0 before input.
-					count++; // Counter increments by 1.
-					inputSet.add(formattedInput);// Add inputs from user to set.
-					System.out.println(input +" was added as entry " +count +"."); //Display input success message.
-
+					if(inputSet.contains(formattedInput)) { //If inputset contains a duplicate.
+						System.out.println("Duplicate found.Please enter a different number."); //Print Error Message.
+					}
+					else { //Else
+						count++; // Counter increments by 1.
+						inputSet.add(formattedInput);// Add inputs from user to set.
+						System.out.println(input +" was added as entry " +count +"."); //Display input success message.
+					}
 				} 
 			}catch (InputMismatchException e) {
-				System.out.println("Invalid input. Please enter a number between 1-99.");
+				System.out.println("Invalid input. Please enter a number between 1-99."); // Ensures only numbers are inputed.
 				scan.next();
 			}
 
