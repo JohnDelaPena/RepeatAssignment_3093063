@@ -61,30 +61,23 @@ public class Game {
 		Set<String> inputSet= new HashSet<String>();
 		int count=0; // Create a counter
 		while(count<6) { // While the count is less than 6:
-			try {
-				int input=scan.nextInt(); //Take user input.
-
-				if(input<1 || input>99 ){ //If Input is less than 1 and greater than 99.
-					System.out.println("Error: Enter 6 Numbers Between 1-99"); //Prompt the user to input numbers withen the range of 1-99.
-				}
-
+			int input=scan.nextInt(); //Take user input.
+			if(input<1 || input>99 ){ //If Input is less than 1 and greater than 99.
+				System.out.println("Error: Enter 6 Numbers Between 1-99"); //Prompt the user to input numbers withen the range of 1-99.
+			}
 				else {// If input is valid.
 					String formattedInput= (input<10) ? "0" + input :String.valueOf(input); // Ternary operator : if input is less than 10, add 0 before input.
 					if(inputSet.contains(formattedInput)) { //If inputset contains a duplicate.
 						System.out.println("Duplicate found.Please enter a different number."); //Print Error Message.
 					}
 					else { //Else
-						count++; // Counter increments by 1.
 						inputSet.add(formattedInput);// Add inputs from user to set.
+						count++; // Counter increments by 1.
 						System.out.println(input +" was added as entry " +count +"."); //Display input success message.
 					}
 				} 
-			}catch (InputMismatchException e) {
-				System.out.println("Invalid input. Please enter a number between 1-99."); // Ensures only numbers are inputed.
-				scan.next();
-			}
 
-		}
+			}
 		return (HashSet<String>) inputSet; //return hashset.
 	}
 }

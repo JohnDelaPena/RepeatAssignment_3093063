@@ -82,7 +82,7 @@ class GameTest {
 			}
 			
 			//Test 3: Test that if the array is less than 6.
-			assertEquals(6,guesses.size(),"The expected size of the set is 6.");
+			assertTrue(guesses.size()==6);
 
 	}
 
