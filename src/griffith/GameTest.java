@@ -55,7 +55,13 @@ class GameTest {
 
 	@Test
 	void testCheckWinner() {
-		fail("Not yet implemented");
+		int matches=0;
+		int actual=0;
+		
+		//Test 1: Check if there are any matches
+		assertTrue(matches>1);
+		
+		
 	}
 
 	@Test
