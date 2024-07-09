@@ -55,11 +55,15 @@ class GameTest {
 
 	@Test
 	void testCheckWinner() {
-		int matches=0;
-		int actual=0;
+		Game game = new Game();
+		Set<String> guesses = game.guesses();
+		Set<String> winningNumbers = game.generateNumbers();
 		
-		//Test 1: Check if there are any matches
-		assertTrue(matches>1);
+		int expected=6;
+		int matches=game.checkWinner(winningNumbers, guesses);
+		
+		//Test 1: Check number of matches is correct.
+		assertEquals(matches,6);
 		
 		
 	}

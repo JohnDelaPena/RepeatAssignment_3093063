@@ -10,10 +10,13 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 		HashSet<String> winningNumbers = game.generateNumbers();
+		System.out.println("These are the winning numbers: " +winningNumbers);
 		HashSet<String> userGuesses = game.guesses();
 
 		System.out.println("These are the winning numbers: " +winningNumbers);
 		System.out.println ("You Guessed : " +userGuesses);
+
+		game.checkWinner(winningNumbers,userGuesses);
 	}
 
 
@@ -38,9 +41,15 @@ public class Game {
 
 	}
 
-	public int checkWinner() {
-		return 0;
-
+	public int checkWinner(Set<String>winningNumbers,Set<String>guesses) {
+		int matches=0;
+		
+		for(String guess: guesses) {
+			if(guesses.contains(winningNumbers)) {
+				matches++;
+			}
+		}
+			return matches;
 	}
 
 	public double prizeWon() {
@@ -65,19 +74,19 @@ public class Game {
 			if(input<1 || input>99 ){ //If Input is less than 1 and greater than 99.
 				System.out.println("Error: Enter 6 Numbers Between 1-99"); //Prompt the user to input numbers withen the range of 1-99.
 			}
-				else {// If input is valid.
-					String formattedInput= (input<10) ? "0" + input :String.valueOf(input); // Ternary operator : if input is less than 10, add 0 before input.
-					if(inputSet.contains(formattedInput)) { //If inputset contains a duplicate.
-						System.out.println("Duplicate found.Please enter a different number."); //Print Error Message.
-					}
-					else { //Else
-						inputSet.add(formattedInput);// Add inputs from user to set.
-						count++; // Counter increments by 1.
-						System.out.println(input +" was added as entry " +count +"."); //Display input success message.
-					}
-				} 
+			else {// If input is valid.
+				String formattedInput= (input<10) ? "0" + input :String.valueOf(input); // Ternary operator : if input is less than 10, add 0 before input.
+				if(inputSet.contains(formattedInput)) { //If inputset contains a duplicate.
+					System.out.println("Duplicate found.Please enter a different number."); //Print Error Message.
+				}
+				else { //Else
+					inputSet.add(formattedInput);// Add inputs from user to set.
+					count++; // Counter increments by 1.
+					System.out.println(input +" was added as entry " +count +"."); //Display input success message.
+				}
+			} 
 
-			}
+		}
 		return (HashSet<String>) inputSet; //return hashset.
 	}
 }
