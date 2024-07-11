@@ -10,13 +10,16 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 		HashSet<String> winningNumbers = game.generateNumbers();
-		System.out.println("These are the winning numbers: " +winningNumbers);
+		System.out.println("[Test] These are the winning numbers : " +winningNumbers);
 		HashSet<String> userGuesses = game.guesses();
 
 		System.out.println("These are the winning numbers: " +winningNumbers);
 		System.out.println ("You Guessed : " +userGuesses);
 
-		game.checkWinner(winningNumbers,userGuesses);
+		int matches= game.checkWinner(winningNumbers,userGuesses);
+		
+		System.out.println("You got " +matches +" matches!" );
+		
 	}
 
 
@@ -42,17 +45,17 @@ public class Game {
 	}
 
 	public int checkWinner(Set<String>winningNumbers,Set<String>guesses) {
-		int matches=0;
+		int matches=0; //Create a variable which stores the amount of matches.
 		
-		for(String guess: guesses) {
-			if(guesses.contains(winningNumbers)) {
-				matches++;
+		for(String guess: guesses) { //For loop which traverses the array of guesses.
+			if(winningNumbers.contains(guess)) { //If winning numbers set contains a guessed number,
+				matches++; // matches increments by 1.
 			}
 		}
 			return matches;
 	}
 
-	public double prizeWon() {
+	public double prizeWon(int matches) {
 		return 0;
 
 	}

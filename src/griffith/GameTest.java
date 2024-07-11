@@ -59,18 +59,31 @@ class GameTest {
 		Set<String> guesses = game.guesses();
 		Set<String> winningNumbers = game.generateNumbers();
 		
-		int expected=6;
 		int matches=game.checkWinner(winningNumbers, guesses);
 		
 		//Test 1: Check number of matches is correct.
 		assertEquals(matches,6);
 		
 		
+		
 	}
 
 	@Test
 	void testPrizeWon() {
-		fail("Not yet implemented");
+		Game game = new Game();
+		
+		//Test for 0-3 Matches
+		assertEquals(0,game.prizeWon(0),"The prize won should be zero.");
+		
+		//Test for 4 Matches
+		assertEquals(4,game.prizeWon(4),"The prize won should be 20.");
+		
+		//Test for 5 Matches
+		assertEquals(5,game.prizeWon(5),"The prize won should be 200.");
+		
+		//Test for 6 Matches
+		assertEquals(6,game.prizeWon(6),"The prize won should be 2000.");
+		
 	}
 
 	@Test
