@@ -74,15 +74,18 @@ class GameTest {
 		
 		//Test for 0-3 Matches
 		assertEquals(0,game.prizeWon(0),"The prize won should be zero.");
+		assertEquals(0,game.prizeWon(1),"The prize won should be zero.");
+		assertEquals(0,game.prizeWon(2),"The prize won should be zero.");
+		assertEquals(0,game.prizeWon(3),"The prize won should be zero.");
 		
 		//Test for 4 Matches
-		assertEquals(4,game.prizeWon(4),"The prize won should be 20.");
+		assertEquals(20,game.prizeWon(4),"The prize won should be 20.");
 		
 		//Test for 5 Matches
-		assertEquals(5,game.prizeWon(5),"The prize won should be 200.");
+		assertEquals(200,game.prizeWon(5),"The prize won should be 200.");
 		
 		//Test for 6 Matches
-		assertEquals(6,game.prizeWon(6),"The prize won should be 2000.");
+		assertEquals(2000,game.prizeWon(6),"The prize won should be 2000.");
 		
 	}
 

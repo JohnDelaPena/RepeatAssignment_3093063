@@ -9,16 +9,16 @@ public class Game {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		HashSet<String> winningNumbers = game.generateNumbers();
-		System.out.println("[Test] These are the winning numbers : " +winningNumbers);
-		HashSet<String> userGuesses = game.guesses();
+		HashSet<String> winningNumbers = game.generateNumbers(); // Create an instance of generateNumbers.
+		//System.out.println("[Test] These are the winning numbers : " +winningNumbers); //Print winning numbers for test.
+		HashSet<String> userGuesses = game.guesses();// Create a set ti stire guesses.
 
-		System.out.println("These are the winning numbers: " +winningNumbers);
-		System.out.println ("You Guessed : " +userGuesses);
+		System.out.println("These are the winning numbers: " +winningNumbers); //Display winning numbers.
+		System.out.println ("You Guessed : " +userGuesses);//Display guessed numbers
 
-		int matches= game.checkWinner(winningNumbers,userGuesses);
-		
-		System.out.println("You got " +matches +" matches!" );
+		int matches= game.checkWinner(winningNumbers,userGuesses); //call checkWinner method to get the number of matches.
+		double money = game.prizeWon(matches); //Use matches as arguement for prizeWon.
+		System.out.println("You got " +matches +" matches and won " +money +" Euros!" ); //Display the matches and money won.
 		
 	}
 
@@ -56,7 +56,17 @@ public class Game {
 	}
 
 	public double prizeWon(int matches) {
-		return 0;
+		switch (matches) { //Switch takes  in matches.
+		//0-3 Matches = 0 prize money
+        case 0: return 0;
+        case 1: return 0;
+        case 2: return 0;
+        case 3: return 0;
+        case 4: return 20; //4 Matches = 20 euro prize money.
+        case 5: return 200; //5 Matches = 200 euro prize money.
+        case 6: return 2000;//6 Matches = 2000 euro prize money.
+        default: return 0;
+		}
 
 	}
 
@@ -90,6 +100,6 @@ public class Game {
 			} 
 
 		}
-		return (HashSet<String>) inputSet; //return hashset.
+		return (HashSet<String>) inputSet;
 	}
 }
